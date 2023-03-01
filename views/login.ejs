@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/pages.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Login</h1>
+        <% if(error=="true"){ %>
+            <div class="error">
+                <p>User doesn't exist</p>
+            </div>
+        <% } %>
+        <form action="/login" method="post">
+            <div class="field">
+                <label for="email">Email</label>
+                <br>
+                <input type="email" name="email" id="email">
+            </div>
+            <div class="field">
+                <label for="password">Password</label>
+                <br>
+                <input type="password" name="password" id="password">
+            </div>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
