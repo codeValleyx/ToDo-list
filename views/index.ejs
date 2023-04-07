@@ -21,11 +21,21 @@
                 <form action="/delete" method= "post" class="item">
                     <input type="checkbox" name="checkbox" value="<%=item._id%>" onchange="this.form.submit()">
                     <p><%=item.content%></p>
+                    <% if(item.date !=="") {%>
+                        <p class="due-date">Due on: <%=item.date%></p>
+                    <%}%>
+
                 </form>
             <% }); %>
         </div>
-        <form action="/add" method="post">
-            <input type="text" name="newItem" id="item" placeholder="New Item" autocomplete="off">
+        <form id="submit-details" action="/add" method="post">
+            <div class="info">
+                <input type="text" name="newItem" id="item" placeholder="New Item" autocomplete="off">
+                <div class="set-date">
+                    <label for="date">Due date: </label>
+                    <input type="date" min= <%= String(date.getFullYear())  + '-' + (String(date.getMonth()+1).length==1?"0"+String(date.getMonth()+1):String(date.getMonth()+1)) + '-' + (String(date.getDate()).length==1?"0"+String(date.getDate()) : String(date.getDate()))%> class="date" name="date" id="date" autocomplete="off">
+                </div>
+            </div>
             <button type="submit">+</button>
         </form>
     </div>

@@ -27,7 +27,8 @@ mongoose.connect(url, {useNewUrlParser: true});
 
 const itemSchema = new mongoose.Schema(
     {
-        content: String
+        content: String,
+        date: String
     }
 );
 
@@ -62,7 +63,7 @@ app.get("/register", (req, res)=>{
 
 app.get("/list", (req, res)=>{
     if(req.isAuthenticated()){
-        res.render("index", {fullList: req.user.todoList, username: req.user.username});
+        res.render("index", {fullList: req.user.todoList, username: req.user.username, date: new Date()});
     }
     else{
         res.redirect("/");
@@ -123,12 +124,26 @@ app.post("/add", (req, res)=>{
         
         const newItem = new Item(
             {
-                content: req.body.newItem
+                content: req.body.newItem,
+                date: req.body.date
             }
         )
         req.user.todoList.push(newItem);
         newItem.save();
         req.user.save();
+        
+        // User.aggregate([
+        //     {
+        //         $set: {
+        //             todoList: {
+        //                 $sortArray : {
+        //                     input: "Ite"
+        //                 }
+        //             }
+        //         }
+        //     }
+        // ]);
+
         res.redirect("/list");
     }
     else{
@@ -153,6 +168,7 @@ app.post("/delete", (req, res)=>{
                     }
                 );
             }
+            
             res.redirect("/list");
         });
     }
