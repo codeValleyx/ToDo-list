@@ -28,7 +28,8 @@ mongoose.connect(url, {useNewUrlParser: true});
 const itemSchema = new mongoose.Schema(
     {
         content: String,
-        date: String
+        date: String,
+        time: String
     }
 );
 
@@ -115,9 +116,13 @@ app.post("/register", (req, res)=>{
     });
 });
 
+app.get("/tasks", (req, res)=>{
+    res.send(req.user.todoList);
+})
+
 app.post("/add", (req, res)=>{
     if(req.isAuthenticated()){
-        if(req.body.newItem=="") {
+        if(req.body.newItem=="" || (req.body.date!="" && req.body.time=="") || (req.body.date=="" && req.body.time!="")) {
             res.redirect("/list");
             return;
         }
@@ -125,9 +130,11 @@ app.post("/add", (req, res)=>{
         const newItem = new Item(
             {
                 content: req.body.newItem,
-                date: req.body.date
+                date: req.body.date,
+                time: req.body.time.split(":").join("-")
             }
         )
+
         req.user.todoList.push(newItem);
         newItem.save();
         req.user.save();
@@ -176,6 +183,10 @@ app.post("/delete", (req, res)=>{
         res.redirect("/");
     }
 });
+
+app.get("/getTasks", (req, res)=>{
+    res.send(req.user.todoList);
+})
 
 
 app.listen(80, ()=>console.log("Server listening to port 80"));

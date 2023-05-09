@@ -59,13 +59,14 @@ form{
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 5px 5px 15px -5px rgba(0, 0, 0, 0.3);
 }
 
 .logout button:hover{
     background-color: rgb(157, 74, 234, 0.882);
 }
 
-button{
+form button{
     min-height: 50px;
     width: 50px;
     border-radius: 50%;
@@ -107,6 +108,40 @@ input:checked + p{
     transition: 0.4s;
 }
 
+#modal{
+    opacity: 0;
+
+    width: 500px;
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #ff9f43;
+    border-radius: 8px;
+    transition: opacity 0.6s;
+}
+
+#modal-content{
+    font-family: 'Mukta', sans-serif;
+    color: white;
+}
+
+#btn-modal{
+    min-height: 30px;
+    width: 30px;
+    border-radius: 30%;
+    border-color: transparent;
+    background-color: #ff9f43;
+    color: #fff;
+    font-size: 16px;
+    border-width: 0;
+    position: absolute;
+    cursor: pointer;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 .due-date{
     font-size: 16px;
     color:white;
@@ -135,7 +170,7 @@ p{
 }
 
 
-input[type="date"]{
+input[type="date"], input[type="time"]{
     background-color: rgba(151, 57, 239, 0.882);
     padding: 8px;
     margin: 1rem 0 1rem 1rem;
@@ -146,6 +181,7 @@ input[type="date"]{
     outline: none;
     border-radius: 5px;
 }
+
 ::-webkit-calendar-picker-indicator{
     background-color: #ffffff;
     padding: 5px;

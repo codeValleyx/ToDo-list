@@ -5,8 +5,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Mukta&family=Lato:wght@300&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script defer src="js/script.js"></script>
 <body>
+
+    <div id="modal">
+        <p id="modal-content">HEY</p>
+        <button id="btn-modal">&#10006;</button>
+    </div>
+
     <div class="logout">
         <form action="/logout" method="get">
             <button type="submit"><img src="logout.png"></button>
@@ -34,6 +42,9 @@
                 <div class="set-date">
                     <label for="date">Due date: </label>
                     <input type="date" min= <%= String(date.getFullYear())  + '-' + (String(date.getMonth()+1).length==1?"0"+String(date.getMonth()+1):String(date.getMonth()+1)) + '-' + (String(date.getDate()).length==1?"0"+String(date.getDate()) : String(date.getDate()))%> class="date" name="date" id="date" autocomplete="off">
+                    <br>
+                    <label for="time">Time: </label>
+                    <input type="time" class="date" name="time" id="time" autocomplete="off">
                 </div>
             </div>
             <button type="submit">+</button>
