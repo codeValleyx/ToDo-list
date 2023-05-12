@@ -4,23 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>To-do List</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC&family=Sacramento&family=Montserrat:wght@300&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Arizonia&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script defer src="js/landing.js"></script>
 </head>
 <body>
-    <ul>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/register">Sign up</a></li>
-    </ul>
-    <div class="container">
-        <h1>Welcome to our task reminder app</h1>
-        <p>This is a todo list app in which you can add your daily tasks and delete them when they are finshed.</p>
-        <div class="container2">
-            
+    <div class="header">
+        <div class="title">
+            <h1></h1>
         </div>
+        <div class="join">
+            <a href="/login">Login</a>
+            <a href="/register">Register</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="quote">"Make your work organized"</h1>
+        <div class="background">
+            <img src="../bg.jpg" alt="" srcset="">
+        </div>
+
+        <p>
+            Our app helps people to organize their tasks and allows them to set reminders for when the tasks' need to be done
+        </p>
     </div>
 </body>
 </html>
